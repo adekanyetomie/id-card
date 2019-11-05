@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 void main() => runApp(MaterialApp(
   home:Id() ,
 ));
-class Id extends StatelessWidget {
+class Id extends StatefulWidget {
+  @override
+  _IdState createState() => _IdState();
+}
+
+class _IdState extends State<Id> {
+  int level = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +20,15 @@ class Id extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Colors.blueGrey[700],
 
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          setState(() {
+            level++;
+          });
+        },
+        child:Icon(Icons.add),
+        backgroundColor: Colors.blueGrey,
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -49,8 +64,9 @@ class Id extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30.0 ),
+
             Text(
-              'Marital Status:',
+              'Level:',
               style: TextStyle(
                 color: Colors.blueGrey[300],
                 letterSpacing: 2.0,
@@ -59,7 +75,7 @@ class Id extends StatelessWidget {
             ),
             SizedBox(height:15.0),
             Text(
-              'Single',
+              '$level',
               style: TextStyle(
                 color: Colors.cyanAccent[100],
                 fontSize: 30.0,
@@ -71,11 +87,11 @@ class Id extends StatelessWidget {
             Text(
               '',
               style: TextStyle(
-                color: Colors.blueGrey,
+                color: Colors.blueGrey[300],
                 letterSpacing: 2.0,
               ),
             ),
-            SizedBox(height: 10.0 ),
+            SizedBox(height: 5.0 ),
             Row(
               children: <Widget>[
                 Icon(
@@ -85,12 +101,12 @@ class Id extends StatelessWidget {
                 SizedBox(width: 10.0),
                 Text(
                   'adekanyetomy@gmail.com',
-                      style: TextStyle(
-                        color: Colors.blueGrey[400],
-                        fontSize: 18.0,
-                        letterSpacing: 2.0
+                  style: TextStyle(
+                      color: Colors.blueGrey[400],
+                      fontSize: 18.0,
+                      letterSpacing: 2.0
 
-                      ),
+                  ),
                 ),
               ],
             ),
@@ -100,5 +116,3 @@ class Id extends StatelessWidget {
     );
   }
 }
-
-
